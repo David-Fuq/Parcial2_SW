@@ -1,3 +1,32 @@
-<p>
-  band-list works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- Tabla con listado de series -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">País</th>
+            <th scope="col">Género</th>
+            <th scope="col">Fundación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Necesita atributo series en serie-list.component.ts -->
+          <tr *ngFor="let band of bands" >
+            <td>
+              <b>{{ band.id }}</b>
+            </td>
+            <td>
+              <a href="{{ band.image }}" target="_blank">{{ band.name }}</a>
+            </td>
+            <td>{{ band.country }}</td>
+            <td>{{ band.genre }}</td>
+            <td>{{ band.foundation_year }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp; La banda más antigua es : {{ oldie_band }} y fue fundada hace {{oldie}} años.</p>
+      <script type="module" src="./scripts/serie.js"></script>
+    </div>
