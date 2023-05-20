@@ -13,7 +13,7 @@ export class BandListComponent implements OnInit {
   oldie_band: string = "";
   selected: Boolean =  false;
 
-  selectedSerie!: Band;
+  selectedBand!: Band;
 
   constructor(private bandService: BandService) { }
 
@@ -39,6 +39,11 @@ export class BandListComponent implements OnInit {
 
   ngOnInit() {
     this.getBands();
+  }
+
+  selectBand(band: Band): void {
+    this.selectedBand = band;
+    this.selected = true;
   }
 
 }

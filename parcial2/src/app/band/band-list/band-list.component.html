@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <!-- Necesita atributo series en serie-list.component.ts -->
-          <tr *ngFor="let band of bands" >
+          <tr *ngFor="let band of bands" (click)="selectBand(band)">
             <td>
               <b>{{ band.id }}</b>
             </td>
@@ -30,3 +30,15 @@
       <p>&nbsp; La banda más antigua es : {{ oldie_band }} y fue fundada hace {{oldie}} años.</p>
       <script type="module" src="./scripts/serie.js"></script>
     </div>
+
+    <div class="col">
+      <div *ngIf="selected; else elseBlock">
+        <!-- Necesita atributo selectedSerie en serie-list y serie en serie-detail -->
+        <app-band-detail [bandDetail]="selectedBand"></app-band-detail>
+      </div>
+      <ng-template #elseBlock
+        ><app-band-detail [bandDetail]="bands[0]"></app-band-detail
+      ></ng-template>
+    </div>
+  </div>
+</div>
